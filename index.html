@@ -1400,17 +1400,31 @@
     opacity: 1 !important;
   }
 
-  /* Imágenes: ver completas sin recortes, centradas en contenedor oscuro */
+  /* FORZAR orden: imagen arriba, texto abajo */
+  .alt-section {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .alt-section .alt-img {
+    order: -1 !important;
+    width: 100% !important;
+  }
+  .alt-section .alt-text {
+    order: 1 !important;
+    width: 100% !important;
+  }
+
+  /* Fotos completas y con buen tamaño */
   .alt-img {
     height: auto !important;
     max-height: 60vh !important;
     min-height: 200px !important;
     width: 100%;
-    background: var(--black); /* Fondo oscuro para las bandas laterales */
+    background: var(--black);
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden; /* Para que no sobresalga nada */
+    overflow: hidden;
   }
   .alt-img img {
     object-fit: contain !important;
@@ -1425,7 +1439,7 @@
     padding: 2rem 1.5rem !important;
   }
 
-  /* Hero con menos padding para que quepa mejor */
+  /* Hero con menos padding */
   .hero-content {
     padding: 6rem 1.25rem 4rem;
   }
