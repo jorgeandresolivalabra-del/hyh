@@ -1390,6 +1390,48 @@
       .testi-sec, .faq-sec { padding: 3.5rem 0; }
     }
 
+    /* ═══════════════════════════════════════
+       MEJORAS PARA MÓVIL (header visible y fotos completas)
+    ═══════════════════════════════════════ */
+    @media (max-width: 768px) {
+      /* Header siempre visible en móvil – nunca ocultar */
+      .hdr.hidden {
+        transform: none !important;
+        opacity: 1 !important;
+      }
+
+      /* Imágenes: mostrar completas (sin recorte) */
+      .alt-img {
+        height: auto !important;
+        max-height: 60vh;
+      }
+      .alt-img img {
+        object-fit: contain !important;
+        height: auto !important;
+        max-height: 60vh;
+        width: 100%;
+      }
+
+      /* Ajuste de padding en textos para móvil */
+      .alt-text {
+        padding: 2rem 1.5rem !important;
+      }
+
+      /* Hero con menos padding para que quepa mejor */
+      .hero-content {
+        padding: 6rem 1.25rem 4rem;
+      }
+      .hero h1 {
+        font-size: clamp(2.8rem, 12vw, 4rem);
+      }
+      .hero-actions .btn-primary,
+      .hero-actions .btn-outline {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.65rem;
+      }
+    }
+    /* Fin mejoras para móvil */
+
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation-duration: .01ms !important;
@@ -1406,7 +1448,6 @@
 <header class="hdr at-top" id="hdr">
   <div class="hdr-inner">
     <a href="/" class="logo" aria-label="Ópticas H&H — inicio">
-      <!-- Ruta corregida -->
       <img src="activos/FOTOSFINALES/img10.jpeg" alt="Logo Ópticas H&H" class="logo-img">
       <span class="logo-text">Ópticas <span>H&H</span></span>
     </a>
@@ -1446,7 +1487,6 @@
 ═══════════════════════════════════════ -->
 <section class="hero" id="inicio" aria-label="Portada principal">
 
-  <!-- Ruta del video corregida -->
   <video class="hero-video" autoplay muted loop playsinline preload="auto"
          aria-hidden="true">
     <source src="activos/FOTOSFINALES/video4.mp4" type="video/mp4">
@@ -1547,7 +1587,6 @@
     </div>
     <div class="alt-img reveal-right">
       <div class="img-num" aria-hidden="true">01</div>
-      <!-- Ruta corregida -->
       <img src="activos/FOTOSFINALES/img55.png"
            alt="Niños usando monturas ópticas de colores, sonriendo"
            loading="lazy">
@@ -1558,7 +1597,6 @@
   <article class="alt-section white editorial-layout">
     <div class="alt-img reveal-left">
       <div class="img-num" aria-hidden="true">02</div>
-      <!-- Ruta corregida -->
       <img src="activos/FOTOSFINALES/img77.png"
            alt="Pareja usando lentes de sol elegantes, sonriendo al exterior"
            loading="lazy">
@@ -1599,7 +1637,6 @@
     </div>
     <div class="alt-img reveal-right">
       <div class="img-num" aria-hidden="true">03</div>
-      <!-- Ruta corregida (con fallback también corregido) -->
       <img src="activos/FOTOSFINALES/img22.png"
            alt="Hombre con montura óptica de diseño sofisticado, pose segura"
            loading="lazy"
@@ -1611,7 +1648,6 @@
   <article class="alt-section light editorial-layout">
     <div class="alt-img reveal-left">
       <div class="img-num" aria-hidden="true">04</div>
-      <!-- Ruta corregida -->
       <img src="activos/FOTOSFINALES/img20.png"
            alt="Mujer joven con lentes de sol elegantes, look sofisticado"
            loading="lazy"
@@ -1653,7 +1689,6 @@
     </div>
     <div class="alt-img reveal-right">
       <div class="img-num" aria-hidden="true">05</div>
-      <!-- Ruta corregida -->
       <img src="activos/FOTOSFINALES/img99.png"
            alt="Mujer elegante con lentes de sol de diseño premium, pose editorial"
            loading="lazy"
@@ -1828,7 +1863,6 @@
       <!-- Brand -->
       <div>
         <div class="foot-brand-logo">
-          <!-- Ruta corregida -->
           <img src="activos/FOTOSFINALES/img10.jpeg" alt="Logo Ópticas H&H" class="foot-logo-img">
           <span class="foot-brand-name">Ópticas <span>H&H</span></span>
         </div>
@@ -1999,7 +2033,11 @@
   let headerTimeout;
   let lastMouseMoveY = 0;
   let isHeaderVisible = true;
-  
+
+  function isMobile() {
+    return window.innerWidth < 768;
+  }
+
   function updateHeader() {
     if (window.scrollY > 60) {
       hdr.classList.remove('at-top');
@@ -2009,61 +2047,63 @@
       hdr.classList.remove('scrolled');
     }
   }
-  
+
   function showHeader() {
+    if (isMobile()) return; // No ocultar en móvil
     if (!isHeaderVisible) {
       hdr.classList.remove('hidden');
       isHeaderVisible = true;
     }
     clearTimeout(headerTimeout);
     headerTimeout = setTimeout(() => {
-      if (window.scrollY > 100) {
+      if (window.scrollY > 100 && !isMobile()) {
         hideHeader();
       }
     }, 3000);
   }
-  
+
   function hideHeader() {
+    if (isMobile()) return;
     if (isHeaderVisible && window.scrollY > 100) {
       hdr.classList.add('hidden');
       isHeaderVisible = false;
     }
   }
-  
-  // Track mouse movement for header auto-hide
-  document.addEventListener('mousemove', (e) => {
-    const currentY = e.clientY;
-    
-    // Show header when mouse moves to top 100px
-    if (currentY < 100) {
-      showHeader();
-    }
-    
-    // Show header when mouse moves up significantly
-    if (currentY < lastMouseMoveY - 50) {
-      showHeader();
-    }
-    
-    lastMouseMoveY = currentY;
-  });
-  
-  // Show header when hovering over it
-  hdr.addEventListener('mouseenter', showHeader);
-  
-  // Start auto-hide timer
+
+  // Solo en desktop: ocultar al hacer scroll y mostrar al mover el ratón arriba
+  if (!isMobile()) {
+    document.addEventListener('mousemove', (e) => {
+      const currentY = e.clientY;
+      if (currentY < 100) showHeader();
+      if (currentY < lastMouseMoveY - 50) showHeader();
+      lastMouseMoveY = currentY;
+    });
+    hdr.addEventListener('mouseenter', showHeader);
+  } else {
+    // En móvil, aseguramos que el header siempre esté visible
+    hdr.classList.remove('hidden');
+    isHeaderVisible = true;
+  }
+
   window.addEventListener('scroll', () => {
     updateHeader();
-    showHeader(); // Show on scroll, then hide after timeout
+    if (!isMobile()) showHeader(); // En móvil no lo ocultamos
   }, { passive: true });
-  
+
   updateHeader();
-  
-  // Initial hide after 3 seconds if scrolled down
-  setTimeout(() => {
-    if (window.scrollY > 100) {
-      hideHeader();
-    }
-  }, 3000);
+
+  // Inicial: mostrar siempre en móvil
+  if (isMobile()) {
+    hdr.classList.remove('hidden');
+    isHeaderVisible = true;
+  } else {
+    // En desktop, ocultar tras 3s si se ha scrolleado
+    setTimeout(() => {
+      if (window.scrollY > 100 && !isMobile()) {
+        hideHeader();
+      }
+    }, 3000);
+  }
 
   /* ── Mobile nav ── */
   const ham = document.getElementById('ham');
@@ -2114,7 +2154,6 @@
   document.querySelectorAll('.faq-item').forEach(item => {
     item.querySelector('.faq-q').addEventListener('click', function () {
       const isOpen = item.classList.contains('open');
-      // Close all
       document.querySelectorAll('.faq-item').forEach(i => {
         i.classList.remove('open');
         i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
@@ -2150,52 +2189,39 @@
     document.getElementById('ms-4'),
   ];
 
-  console.log('[Modal] Elementos del DOM encontrados:');
-  console.log('[Modal] modalBg:', modalBg);
-  console.log('[Modal] modalBox:', modalBox);
-  console.log('[Modal] btnNext:', btnNext);
-  console.log('[Modal] btnBack:', btnBack);
-
   let step = 0;
   let selSvc  = 'Examen Visual Completo (Gratis)';
   let selTime = '';
 
   function openModal() {
-    console.log('[Modal] openModal() - Abriendo modal');
     resetModal();
     modalBg.classList.add('show');
     modalBox.classList.add('show');
     document.body.style.overflow = 'hidden';
-    // Announce for screen readers
     modalBox.focus && modalBox.focus();
   }
   function closeModal() {
-    console.log('[Modal] closeModal() - Cerrando modal');
     modalBg.classList.remove('show');
     modalBox.classList.remove('show');
     document.body.style.overflow = '';
   }
 
   document.querySelectorAll('.open-modal').forEach(b => b.addEventListener('click', openModal));
-  console.log('[Modal] Botones open-modal encontrados:', document.querySelectorAll('.open-modal').length);
   modalClose.addEventListener('click', closeModal);
   modalBg.addEventListener('click', closeModal);
   successClose.addEventListener('click', closeModal);
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
   function gotoStep(n) {
-    console.log('[Modal] gotoStep() - Cambiando a paso:', n);
     step = n;
     steps.forEach((s, i) => s.classList.toggle('active', i === n));
     pips.forEach((p, i) => p.classList.toggle('active', i <= Math.min(n, 2)));
     btnBack.style.display = n > 0 && n < 3 ? 'block' : 'none';
     btnNext.textContent = n === 2 ? 'Confirmar Cita →' : 'Siguiente →';
     modalFoot.style.display = n === 3 ? 'none' : 'flex';
-    console.log('[Modal] gotoStep() - Paso actualizado a:', step, 'Texto botón:', btnNext.textContent);
   }
 
   function resetModal() {
-    console.log('[Modal] resetModal() - Reiniciando modal');
     selSvc = 'Examen Visual Completo (Gratis)';
     selTime = '';
     document.querySelectorAll('.svc-card').forEach((c, i) => c.classList.toggle('sel', i === 0));
@@ -2208,32 +2234,23 @@
     gotoStep(0);
   }
 
-  // Service selection
-  console.log('[Modal] Configurando selección de servicio');
   document.querySelectorAll('.svc-card').forEach(card => {
     card.addEventListener('click', function () {
-      console.log('[Modal] Service card clickeado:', this.dataset.svc);
       document.querySelectorAll('.svc-card').forEach(c => c.classList.remove('sel'));
       this.classList.add('sel');
       selSvc = this.dataset.svc;
-      console.log('[Modal] Servicio seleccionado:', selSvc);
     });
   });
 
-  // Time slots
-  console.log('[Modal] Configurando selección de hora');
   document.querySelectorAll('.tslot').forEach(btn => {
     btn.addEventListener('click', function () {
-      console.log('[Modal] Time slot clickeado:', this.dataset.t);
       document.querySelectorAll('.tslot').forEach(b => b.classList.remove('sel'));
       this.classList.add('sel');
       selTime = this.dataset.t;
-      console.log('[Modal] Hora seleccionada:', selTime);
     });
   });
 
   btnNext.addEventListener('click', () => {
-    console.log('[Modal] btnNext clickeado, paso actual:', step);
     if (step === 1) {
       if (!document.getElementById('book-date').value) {
         alert('Por favor selecciona una fecha.');
@@ -2245,20 +2262,17 @@
       }
     }
     if (step === 2) {
-      console.log('[Modal] Paso 2 - Validando datos de contacto');
       const n = document.getElementById('p-name').value.trim();
       const e = document.getElementById('p-email').value.trim();
       const p = document.getElementById('p-phone').value.trim();
       if (!n || !e || !p) { alert('Por favor completa todos los campos.'); return; }
 
-      console.log('[Modal] Datos validados, preparando envío al webhook');
       const rawDate = document.getElementById('book-date').value;
       const dateObj = new Date(rawDate + 'T12:00');
       const fmtDate = dateObj.toLocaleDateString('es-CL', {
         weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
       });
 
-      // Prepare data for webhook
       const bookingData = {
         service: selSvc,
         date: rawDate,
@@ -2269,7 +2283,6 @@
         submittedAt: new Date().toISOString()
       };
 
-      console.log('[Modal] Datos a enviar al webhook:', bookingData);
       submitToWebhook(bookingData, fmtDate);
       return;
     }
@@ -2278,37 +2291,22 @@
 
   btnBack.addEventListener('click', () => { if (step > 0) gotoStep(step - 1); });
 
-  // Function to submit data to Activepieces webhook
   async function submitToWebhook(bookingData, fmtDate) {
-    console.log('[Modal] submitToWebhook() - Iniciando envío al webhook');
     const webhookUrl = 'https://cloud.activepieces.com/api/v1/webhooks/1VM3zoReCxtK9Ft8QLDiO';
-    console.log('[Modal] submitToWebhook() - URL del webhook:', webhookUrl);
-
     try {
-      console.log('[Modal] submitToWebhook() - Enviando fetch request');
       const response = await fetch(webhookUrl, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(bookingData)
       });
-
-      console.log('[Modal] submitToWebhook() - Response recibida, status:', response.status, 'ok:', response.ok);
-
       if (response.ok) {
-        console.log('[Modal] submitToWebhook() - Envío exitoso');
-        // Success - show success message
         document.getElementById('success-msg').innerHTML =
           `Tu cita para <strong>${bookingData.service}</strong> fue confirmada para el <strong>${fmtDate}</strong> a las <strong>${bookingData.time} hrs</strong>. Hemos enviado los detalles a <strong>${bookingData.patientEmail}</strong>.`;
         gotoStep(3);
       } else {
-        console.error('[Modal] submitToWebhook() - Error en response, status:', response.status);
-        // Error - show error message
         alert('Hubo un error al confirmar tu cita. Por favor intenta nuevamente o contáctanos directamente.');
       }
     } catch (error) {
-      console.error('[Modal] submitToWebhook() - Error en catch:', error);
       alert('Hubo un error al confirmar tu cita. Por favor intenta nuevamente o contáctanos directamente.');
     }
   }
