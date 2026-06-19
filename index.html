@@ -1400,22 +1400,25 @@
     opacity: 1 !important;
   }
 
-  /* Imágenes: todas con el mismo alto para que se vean igual de grandes */
+  /* Imágenes: ver completas sin recortes, centradas en contenedor oscuro */
   .alt-img {
-    height: 45vh !important;        /* Usa el 45% de la altura de la pantalla */
-    max-height: 400px !important;   /* Límite para no exagerar en tablets */
-    min-height: 200px !important;   /* Mínimo para que no sean muy chicas */
+    height: auto !important;
+    max-height: 60vh !important;
+    min-height: 200px !important;
     width: 100%;
+    background: var(--black); /* Fondo oscuro para las bandas laterales */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Para que no sobresalga nada */
   }
   .alt-img img {
-    object-fit: cover !important;   /* Recorta para llenar el contenedor */
-    height: 100% !important;        /* Ocupa toda la altura */
-    width: 100% !important;
-    object-position: center 20%;    /* Sube el enfoque para no cortar la frente */
+    object-fit: contain !important;
+    height: auto !important;
+    max-height: 60vh !important;
+    width: 100%;
+    max-width: 100%;
   }
-
-  /* Para imágenes con rostros muy abajo, ajusta cada sección si es necesario */
-  /* Puedes agregar clases específicas si alguna se corta mal */
 
   /* Ajuste de padding en textos para móvil */
   .alt-text {
