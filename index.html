@@ -1,0 +1,2317 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ópticas H&H — Lentes ópticos y de sol de lujo. Examen visual gratuito. Atención personalizada en Santiago, Chile.">
+  <meta name="theme-color" content="#0B0F19">
+  <title>Ópticas H&H | Visión & Estilo</title>
+
+  <!-- Favicon from local logo -->
+  <link rel="icon" type="image/jpeg" href="ACTIVOS/FOTOSFINALES/img10.jpeg">
+
+  <!-- Fonts: Cormorant Garamond (luxury display) + Inter (clean body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* ═══════════════════════════════════════
+       TOKENS — Paleta premium corporativa
+    ═══════════════════════════════════════ */
+    :root {
+      /* Core */
+      --navy:      #0F172A;
+      --black:     #0B0F19;
+      --white:     #FFFFFF;
+      --offwhite:  #F8F9FA;
+      --gray-lt:   #E5E7EB;
+      --gray-mid:  #9CA3AF;
+      --gray-dk:   #374151;
+
+      /* Accent */
+      --gold:      #D4AF37;
+      --gold-lt:   #E8CC6A;
+      --gold-dk:   #A8892B;
+
+      /* Gradients */
+      --g-dark:    linear-gradient(160deg, #0B0F19 0%, #0F172A 40%, #111827 100%);
+      --g-gold:    linear-gradient(135deg, #D4AF37 0%, #E8CC6A 50%, #D4AF37 100%); /* Symmetric gold gradient for accents */
+      --g-navy-fade: linear-gradient(to right, #0F172A 0%, transparent 100%);
+
+      /* Radius */
+      --r-sm: 4px;
+      --r-md: 8px;
+      --r-lg: 16px;
+      --r-xl: 24px;
+
+      /* Shadows */
+      --shadow-color: rgba(0,0,0,.08);
+      --sh-xs: 0 1px 3px var(--shadow-color);
+      --sh-sm: 0 4px 12px var(--shadow-color);
+      --sh-md: 0 8px 32px rgba(0,0,0,.1);
+      --sh-lg: 0 20px 60px rgba(0,0,0,.14);
+      --sh-gold: 0 8px 32px rgba(212,175,55,.25);
+
+      /* Transitions */
+      --tr: all .32s cubic-bezier(.4,0,.2,1);
+      --tr-slow: all .6s cubic-bezier(.4,0,.2,1);
+
+      /* Spacing */
+      --space-xs: 0.25rem;
+      --space-sm: 0.5rem;
+      --space-md: 1rem;
+      --space-lg: 1.5rem;
+      --space-xl: 2rem;
+      --space-2xl: 3rem;
+      --space-3xl: 4rem;
+      --space-4xl: 5rem;
+
+      /* Typography */
+      --text-xs: 0.75rem;
+      --text-sm: 0.875rem;
+      --text-base: 1rem;
+      --text-lg: 1.125rem;
+      --text-xl: 1.25rem;
+      --text-2xl: 1.5rem;
+      --text-3xl: 1.875rem;
+      --text-4xl: 2.25rem;
+      --text-5xl: 3rem;
+      --leading-tight: 1.25;
+      --leading-normal: 1.5;
+      --leading-relaxed: 1.75;
+
+      /* Z-Index Layers */
+      --z-base: 1;
+      --z-dropdown: 100;
+      --z-sticky: 200;
+      --z-fixed: 300;
+      --z-modal-backdrop: 1000;
+      --z-modal: 1001;
+      --z-popover: 1100;
+      --z-tooltip: 1200;
+
+      /* Breakpoints */
+      --bp-mobile: 600px;
+      --bp-tablet: 900px;
+      --bp-desktop: 1100px;
+      --bp-wide: 1400px;
+    }
+
+    /* ═══════════════════════════════════════
+       RESET & BASE
+    ═══════════════════════════════════════ */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--white);
+      color: var(--navy);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      line-height: 1.1;
+      letter-spacing: -.01em;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; color: inherit; }
+    button { font: inherit; cursor: pointer; border: none; background: none; }
+
+    /* ═══════════════════════════════════════
+       UTILITIES
+    ═══════════════════════════════════════ */
+    .container { width: 100%; max-width: 1320px; margin: 0 auto; padding: 0 2.5rem; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+
+    /* eyebrow label */
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      font-family: 'Inter Tight', sans-serif;
+      font-size: .68rem;
+      font-weight: 600;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.25rem;
+    }
+    .eyebrow::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    /* gold rule divider */
+    .gold-rule { width: 40px; height: 1px; background: var(--gold); margin: 1.5rem 0; }
+    .gold-rule.center { margin: 1.5rem auto; }
+
+    /* ═══════════════════════════════════════
+       SCROLL REVEAL
+    ═══════════════════════════════════════ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity .7s cubic-bezier(.4,0,.2,1), transform .7s cubic-bezier(.4,0,.2,1);
+    }
+    .reveal.revealed { opacity: 1; transform: translateY(0); }
+    .reveal-left { opacity: 0; transform: translateX(-40px); transition: opacity .7s cubic-bezier(.4,0,.2,1), transform .7s cubic-bezier(.4,0,.2,1); }
+    .reveal-left.revealed { opacity: 1; transform: translateX(0); }
+    .reveal-right { opacity: 0; transform: translateX(40px); transition: opacity .7s cubic-bezier(.4,0,.2,1), transform .7s cubic-bezier(.4,0,.2,1); }
+    .reveal-right.revealed { opacity: 1; transform: translateX(0); }
+    .delay-1 { transition-delay: .1s; }
+    .delay-2 { transition-delay: .22s; }
+    .delay-3 { transition-delay: .36s; }
+    .delay-4 { transition-delay: .5s; }
+
+    /* ═══════════════════════════════════════
+       HEADER
+    ═══════════════════════════════════════ */
+    .hdr {
+      position: fixed;
+      top: 0; left: 0; width: 100%;
+      z-index: 1000;
+      transition: transform 0.4s ease, opacity 0.4s ease, background 0.4s ease;
+      padding: 0;
+    }
+    .hdr.hidden {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    .hdr-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.4rem 2.5rem;
+      transition: var(--tr);
+    }
+    /* Transparent on hero */
+    .hdr.at-top .hdr-inner { 
+      background: transparent;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+    }
+    /* Glassmorphism on scroll */
+    .hdr.scrolled .hdr-inner {
+      background: rgba(11, 15, 25, .82);
+      backdrop-filter: blur(24px) saturate(1.4);
+      -webkit-backdrop-filter: blur(24px) saturate(1.4);
+      border-bottom: 1px solid rgba(212,175,55,.12);
+      padding: 1rem 2.5rem;
+      box-shadow: 0 4px 32px rgba(0,0,0,.3);
+    }
+
+    /* Logo */
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+    }
+    .logo-img {
+      width: 44px;
+      height: 44px;
+      object-fit: cover;
+      border-radius: 6px;
+      border: 1px solid rgba(212,175,55,.3);
+    }
+    .logo-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      color: var(--white);
+    }
+    .logo-text span {
+      color: var(--gold);
+    }
+
+    /* Nav links */
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: 'Inter Tight', sans-serif;
+      font-size: .78rem;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.75);
+      position: relative;
+      padding-bottom: 2px;
+      transition: color .25s;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0;
+      width: 0; height: 1px;
+      background: var(--gold);
+      transition: width .3s cubic-bezier(.4,0,.2,1);
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a:hover::after { width: 100%; }
+
+    /* Nav actions */
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+    .nav-icon {
+      width: 36px; height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,.7);
+      font-size: .9rem;
+      border-radius: var(--r-md);
+      transition: var(--tr);
+    }
+    .nav-icon:hover { color: var(--white); background: rgba(255,255,255,.08); }
+
+    .btn-nav {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      font-family: 'Inter Tight', sans-serif;
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--black);
+      background: var(--g-gold);
+      padding: .6rem 1.4rem;
+      border-radius: var(--r-sm);
+      transition: var(--tr);
+    }
+    .btn-nav:hover { transform: translateY(-1px); box-shadow: var(--sh-gold); }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px; height: 1.5px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: var(--tr);
+    }
+
+    /* Mobile nav */
+    .mob-nav {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--black);
+      z-index: 990;
+      padding: 8rem 3rem 4rem;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .mob-nav.open { display: flex; }
+    .mob-nav a {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem;
+      font-weight: 300;
+      color: rgba(255,255,255,.8);
+      border-bottom: 1px solid rgba(255,255,255,.07);
+      padding-bottom: 1.5rem;
+      transition: color .2s;
+    }
+    .mob-nav a:hover { color: var(--gold); }
+    .mob-close {
+      position: absolute;
+      top: 1.75rem; right: 2rem;
+      color: rgba(255,255,255,.6);
+      font-size: 1.5rem;
+      padding: .5rem;
+    }
+
+    /* ═══════════════════════════════════════
+       HERO
+    ═══════════════════════════════════════ */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 90vh;
+      min-height: 550px;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      background: var(--black);
+    }
+
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      z-index: 0;
+      filter: brightness(0.85) saturate(1.05) contrast(1.05);
+    }
+
+    /* Ajuste específico para video vertical */
+    .hero-video {
+      object-fit: cover;
+      object-position: center center;
+      min-width: 100%;
+      min-height: 100%;
+    }
+
+    /* Layered overlays for cinematic look */
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        linear-gradient(to top,    rgba(11,15,25,.92) 0%, rgba(11,15,25,.3) 35%, transparent 65%),
+        linear-gradient(to right,  rgba(11,15,25,.6) 0%, transparent 55%),
+        linear-gradient(to bottom, rgba(11,15,25,.4) 0%, transparent 25%);
+    }
+
+    /* Subtle grain for premium texture */
+    .hero-grain {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      opacity: .018;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      width: 100%;
+      padding: 14rem 2.5rem 7rem;
+      max-width: 1320px;
+      margin: 0 auto;
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: .75rem;
+      font-family: 'Inter Tight', sans-serif;
+      font-size: .65rem;
+      font-weight: 600;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.75rem;
+      animation: heroFadeUp .8s .2s cubic-bezier(.4,0,.2,1) both;
+    }
+    .hero-kicker::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .hero h1 {
+      font-size: clamp(3.2rem, 7vw, 6.5rem);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.0;
+      letter-spacing: -.02em;
+      max-width: 780px;
+      animation: heroFadeUp .9s .35s cubic-bezier(.4,0,.2,1) both;
+    }
+    .hero h1 em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--gold);
+    }
+
+    .hero-sub {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(.9rem, 1.5vw, 1.05rem);
+      font-weight: 300;
+      color: rgba(255,255,255,.65);
+      max-width: 440px;
+      margin: 1.75rem 0 2.5rem;
+      line-height: 1.7;
+      animation: heroFadeUp .9s .5s cubic-bezier(.4,0,.2,1) both;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      animation: heroFadeUp .9s .65s cubic-bezier(.4,0,.2,1) both;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: var(--g-gold);
+      color: var(--black);
+      font-family: 'Inter Tight', sans-serif;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: .9rem 2.25rem;
+      border-radius: var(--r-sm);
+      transition: var(--tr);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: var(--sh-gold); }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: transparent;
+      color: var(--white);
+      font-family: 'Inter Tight', sans-serif;
+      font-size: .72rem;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: .9rem 2.25rem;
+      border: 1px solid rgba(255,255,255,.3);
+      border-radius: var(--r-sm);
+      transition: var(--tr);
+    }
+    .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,.06); }
+
+    /* Hero stats strip */
+    .hero-stats {
+      position: absolute;
+      bottom: 2.5rem;
+      right: 2.5rem;
+      z-index: 3;
+      display: flex;
+      gap: 2rem;
+      animation: heroFadeUp .9s .8s cubic-bezier(.4,0,.2,1) both;
+    }
+    .h-stat {
+      text-align: right;
+      border-right: 1px solid rgba(255,255,255,.12);
+      padding-right: 2rem;
+    }
+    .h-stat:last-child { border-right: none; padding-right: 0; }
+    .h-stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 500;
+      color: var(--white);
+      line-height: 1;
+    }
+    .h-stat-label {
+      font-family: 'Inter Tight', sans-serif;
+      font-size: .62rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.45);
+      margin-top: .2rem;
+    }
+
+    /* Scroll indicator */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2.8rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .4rem;
+      color: rgba(255,255,255,.35);
+      font-family: 'Inter Tight', sans-serif;
+      font-size: .58rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      animation: heroFadeUp 1s 1.1s both, scrollBounce 2.5s 2s ease-in-out infinite;
+    }
+    .scroll-line {
+      width: 1px;
+      height: 36px;
+      background: linear-gradient(to bottom, rgba(212,175,55,.6), transparent);
+    }
+
+    @keyframes heroFadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes scrollBounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(6px); }
+    }
+
+    /* ═══════════════════════════════════════
+       MARQUEE STRIP (Between Hero & Sections)
+    ═══════════════════════════════════════ */
+    .marquee-strip {
+      background: var(--navy);
+      border-top: 1px solid rgba(212,175,55,.15);
+      border-bottom: 1px solid rgba(212,175,55,.15);
+      padding: .9rem 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .marquee-track {
+      display: inline-flex;
+      gap: 0;
+      animation: marquee 30s linear infinite;
+    }
+    .marquee-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 0 2rem;
+      font-family: 'Inter Tight', sans-serif;
+      font-size: .65rem;
+      font-weight: 500;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.4);
+    }
+    .marquee-item span {
+      color: var(--gold);
+      font-size: .5rem;
+    }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ═══════════════════════════════════════
+       ALTERNATING SECTIONS (The Core)
+    ═══════════════════════════════════════ */
+    .alt-section {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      min-height: 40vh;
+      overflow: hidden;
+    }
+
+    /* Dark variant */
+    .alt-section.dark { background: var(--navy); }
+    .alt-section.light { background: var(--offwhite); }
+    .alt-section.white { background: var(--white); }
+    .alt-section.black { background: var(--black); }
+
+    /* Text pane */
+    .alt-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 4rem 3.5rem;
+    }
+    .alt-section.dark  .alt-text,
+    .alt-section.black .alt-text { color: var(--white); }
+    .alt-section.light .alt-text,
+    .alt-section.white .alt-text { color: var(--navy); }
+
+    .alt-text .eyebrow { /* inherits color from parent */ }
+    .alt-section.dark  .alt-text .eyebrow,
+    .alt-section.black .alt-text .eyebrow { color: var(--gold); }
+    .alt-section.light .alt-text .eyebrow,
+    .alt-section.white .alt-text .eyebrow { color: var(--gold-dk); }
+
+    .alt-section.dark  .alt-text .gold-rule,
+    .alt-section.black .alt-text .gold-rule { background: rgba(212,175,55,.5); }
+    .alt-section.light .alt-text .gold-rule,
+    .alt-section.white .alt-text .gold-rule { background: var(--gold-dk); }
+
+    .alt-h {
+      font-size: clamp(2.5rem, 4vw, 3.8rem);
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: -.02em;
+      margin-bottom: 1.25rem;
+    }
+    .alt-section.dark  .alt-h,
+    .alt-section.black .alt-h { color: var(--white); }
+    .alt-section.light .alt-h,
+    .alt-section.white .alt-h { color: var(--navy); }
+
+    .alt-h em {
+      font-style: italic;
+      font-weight: 300;
+    }
+    .alt-section.dark  .alt-h em,
+    .alt-section.black .alt-h em { color: var(--gold); }
+    .alt-section.light .alt-h em,
+    .alt-section.white .alt-h em { color: var(--gold-dk); }
+
+    .alt-p {
+      font-size: 1.05rem;
+      font-weight: 300;
+      line-height: 1.8;
+      max-width: 400px;
+      margin-bottom: 2.5rem;
+    }
+    .alt-section.dark  .alt-p,
+    .alt-section.black .alt-p { color: rgba(255,255,255,.6); }
+    .alt-section.light .alt-p,
+    .alt-section.white .alt-p { color: var(--gray-dk); }
+
+    .btn-alt {
+      display: inline-flex;
+      align-items: center;
+      gap: .75rem;
+      font-family: 'Inter Tight', sans-serif;
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      padding: .85rem 0;
+      border-bottom: 1px solid currentColor;
+      transition: gap .3s, opacity .2s;
+      align-self: flex-start;
+    }
+    .alt-section.dark  .btn-alt,
+    .alt-section.black .btn-alt { color: var(--gold); border-color: rgba(212,175,55,.4); }
+    .alt-section.light .btn-alt,
+    .alt-section.white .btn-alt { color: var(--navy); border-color: rgba(15,23,42,.3); }
+    .btn-alt:hover { gap: 1.1rem; opacity: .8; }
+
+    /* Image pane */
+    .alt-img {
+      position: relative;
+      overflow: hidden;
+      height: 100%;
+    }
+    .alt-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      transition: transform .8s cubic-bezier(.4,0,.2,1);
+    }
+    /* Specific sizing for sections with larger images */
+    .alt-section.white .alt-img img,
+    .alt-section.light .alt-img img {
+      max-width: 85%;
+      margin: 0 auto;
+    }
+    /* Specific sizing for horizontal images (Kids section) */
+    .alt-section.kids-horizontal {
+      grid-template-columns: 1fr 1.8fr;
+    }
+    .alt-section.kids-horizontal .alt-img img {
+      max-width: 100%;
+      object-fit: cover;
+      object-position: center center;
+    }
+    /* Editorial layout for premium fashion sections */
+    .alt-section.editorial-layout {
+      grid-template-columns: 1.2fr 1fr;
+    }
+    .alt-section.editorial-layout .alt-img {
+      width: 100%;
+    }
+    .alt-section.editorial-layout .alt-img img {
+      max-width: 100%;
+      object-fit: cover;
+      object-position: center center;
+    }
+    .alt-section.editorial-layout .alt-text {
+      text-align: right;
+      padding-left: 3rem;
+      padding-right: 4rem;
+      justify-content: center;
+    }
+    .alt-section.editorial-layout .alt-text .gold-rule {
+      margin-left: auto;
+      margin-right: 0;
+    }
+    .alt-section:hover .alt-img img { transform: scale(1.03); }
+
+    /* Subtle gold accent on image pane */
+    .alt-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 60%, rgba(11,15,25,.15) 100%);
+      pointer-events: none;
+    }
+
+    /* Image overlay number (Cartier signature detail) */
+    .img-num {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 5rem;
+      font-weight: 300;
+      line-height: 1;
+      color: rgba(255,255,255,.06);
+      pointer-events: none;
+      z-index: 1;
+      letter-spacing: -.04em;
+    }
+
+    /* ═══════════════════════════════════════
+       BRAND VALUES STRIP
+    ═══════════════════════════════════════ */
+    .values-strip {
+      background: var(--white);
+      border-top: 1px solid var(--gray-lt);
+      border-bottom: 1px solid var(--gray-lt);
+      padding: 2rem 0;
+    }
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+    .val-item {
+      text-align: center;
+      padding: 1.2rem 1.5rem;
+      border-right: 1px solid var(--gray-lt);
+      transition: all .4s cubic-bezier(.4,0,.2,1);
+      position: relative;
+      overflow: hidden;
+    }
+    .val-item::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(212,175,55,.05) 0%, transparent 100%);
+      opacity: 0;
+      transition: opacity .4s ease;
+    }
+    .val-item:hover {
+      transform: translateY(-5px);
+      background: rgba(212,175,55,.03);
+    }
+    .val-item:hover::before {
+      opacity: 1;
+    }
+    .val-item:last-child { border-right: none; }
+    .val-icon {
+      width: 40px; height: 40px;
+      margin: 0 auto 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold-dk);
+      font-size: 1.1rem;
+      border: 1px solid rgba(212,175,55,.3);
+      border-radius: 50%;
+      transition: all .4s cubic-bezier(.4,0,.2,1);
+      position: relative;
+      z-index: 1;
+    }
+    .val-item:hover .val-icon {
+      transform: rotate(360deg) scale(1.1);
+      background: var(--gold);
+      color: var(--white);
+      border-color: var(--gold);
+      box-shadow: 0 8px 24px rgba(212,175,55,.3);
+    }
+    .val-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: .35rem;
+    }
+    .val-desc {
+      font-size: .78rem;
+      font-weight: 300;
+      color: var(--gray-mid);
+      line-height: 1.6;
+    }
+
+    /* ═══════════════════════════════════════
+       TESTIMONIALS
+    ═══════════════════════════════════════ */
+    .testi-sec {
+      background: var(--navy);
+      padding: 5rem 0;
+    }
+    .testi-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .testi-header h2 {
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 300;
+      color: var(--white);
+    }
+    .testi-header h2 em { font-style: italic; color: var(--gold); }
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .testi-card {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: var(--r-lg);
+      padding: 2rem;
+      transition: all .4s cubic-bezier(.4,0,.2,1);
+      position: relative;
+      overflow: hidden;
+    }
+    .testi-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold) 0%, transparent 100%);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .4s cubic-bezier(.4,0,.2,1);
+    }
+    .testi-card:hover {
+      transform: translateY(-8px);
+      background: rgba(255,255,255,.08);
+      border-color: rgba(212,175,55,.3);
+      box-shadow: 0 16px 40px rgba(0,0,0,.3);
+    }
+    .testi-card:hover::before {
+      transform: scaleX(1);
+    }
+    .testi-stars {
+      display: flex;
+      gap: .2rem;
+      color: var(--gold);
+      font-size: .8rem;
+      margin-bottom: 1.5rem;
+    }
+    .testi-q {
+      position: absolute;
+      top: -1.5rem;
+      left: 0;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 5rem;
+      color: rgba(212,175,55,.15);
+      line-height: 1;
+    }
+    .testi-text-wrap { position: relative; }
+    .testi-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-style: italic;
+      font-weight: 300;
+      color: rgba(255,255,255,.8);
+      line-height: 1.7;
+      margin-bottom: 1.75rem;
+    }
+    .testi-author { display: flex; align-items: center; gap: .9rem; }
+    .tav {
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      background: rgba(212,175,55,.15);
+      border: 1px solid rgba(212,175,55,.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--gold);
+    }
+    .tav-name { font-size: .88rem; font-weight: 500; color: var(--white); }
+    .tav-loc  { font-size: .72rem; color: rgba(255,255,255,.4); margin-top: .15rem; }
+
+    /* ═══════════════════════════════════════
+       FAQ
+    ═══════════════════════════════════════ */
+    .faq-sec {
+      background: var(--offwhite);
+      padding: 5rem 0;
+    }
+    .faq-header { text-align: center; margin-bottom: 3rem; }
+    .faq-header h2 { font-size: clamp(2rem, 3vw, 2.8rem); font-weight: 300; color: var(--navy); }
+    .faq-header h2 em { font-style: italic; color: var(--gold-dk); }
+    .faq-list { max-width: 800px; margin: 0 auto; }
+    .faq-item {
+      border-bottom: 1px solid var(--gray-lt);
+      transition: all .4s cubic-bezier(.4,0,.2,1);
+      position: relative;
+    }
+    .faq-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: var(--gold);
+      transform: scaleY(0);
+      transform-origin: center;
+      transition: transform .4s cubic-bezier(.4,0,.2,1);
+    }
+    .faq-item:hover::before,
+    .faq-item.open::before {
+      transform: scaleY(1);
+    }
+    .faq-item:first-child { border-top: 1px solid var(--gray-lt); }
+    .faq-item:hover {
+      background: rgba(212,175,55,.02);
+      padding-left: .5rem;
+    }
+    .faq-q {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 0;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--navy);
+      text-align: left;
+      gap: 1rem;
+      transition: color .2s;
+      position: relative;
+      z-index: 1;
+    }
+    .faq-q:hover { color: var(--gold-dk); }
+    .faq-item.open .faq-q { color: var(--gold-dk); }
+    .faq-icon {
+      width: 28px; height: 28px;
+      border: 1px solid rgba(15,23,42,.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .65rem;
+      color: var(--gray-mid);
+      flex-shrink: 0;
+      transition: var(--tr);
+    }
+    .faq-item.open .faq-icon { transform: rotate(45deg); border-color: var(--gold-dk); color: var(--gold-dk); }
+    .faq-body { max-height: 0; overflow: hidden; transition: max-height .38s cubic-bezier(.4,0,.2,1); }
+    .faq-body-inner {
+      padding: 0 0 1.5rem;
+      font-size: .92rem;
+      font-weight: 300;
+      color: var(--gray-dk);
+      line-height: 1.8;
+      max-width: 640px;
+    }
+
+    /* ═══════════════════════════════════════
+       CTA BAND
+    ═══════════════════════════════════════ */
+    .cta-band {
+      background: var(--black);
+      padding: 4rem 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-band::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--black) 0%, rgba(212,175,55,.05) 50%, var(--black) 100%);
+      background-size: 200% 200%;
+      animation: gradientShift 8s ease infinite;
+      pointer-events: none;
+    }
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .cta-band::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 100%, rgba(212,175,55,.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-band h2 {
+      font-size: clamp(2.2rem, 4vw, 3.8rem);
+      font-weight: 300;
+      color: var(--white);
+      margin-bottom: 1rem;
+      position: relative;
+    }
+    .cta-band h2 em { font-style: italic; color: var(--gold); }
+    .cta-band p {
+      font-size: 1rem;
+      font-weight: 300;
+      color: rgba(255,255,255,.5);
+      max-width: 480px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+      position: relative;
+    }
+
+    /* ═══════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════ */
+    .footer {
+      background: var(--black);
+      border-top: 1px solid rgba(212,175,55,.1);
+      padding: 4rem 0 2rem;
+      color: rgba(255,255,255,.5);
+    }
+    .foot-top {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr 1.4fr;
+      gap: 2.5rem;
+      margin-bottom: 3rem;
+    }
+    .foot-brand-logo {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      margin-bottom: 1.25rem;
+    }
+    .foot-logo-img {
+      width: 48px; height: 48px;
+      object-fit: cover;
+      border-radius: 6px;
+      border: 1px solid rgba(212,175,55,.2);
+    }
+    .foot-brand-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: var(--white);
+      letter-spacing: .04em;
+    }
+    .foot-brand-name span { color: var(--gold); }
+    .foot-desc {
+      font-size: .83rem;
+      font-weight: 300;
+      line-height: 1.7;
+      color: rgba(255,255,255,.4);
+      margin-bottom: 1.75rem;
+      max-width: 280px;
+    }
+    .socials {
+      display: flex;
+      gap: .7rem;
+    }
+    .soc {
+      width: 34px; height: 34px;
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,.45);
+      font-size: .8rem;
+      transition: var(--tr);
+    }
+    .soc:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+    .foot-h {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: .9rem;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+    .foot-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: .7rem;
+    }
+    .foot-links a {
+      font-size: .83rem;
+      font-weight: 300;
+      color: rgba(255,255,255,.4);
+      transition: color .2s, padding-left .2s;
+    }
+    .foot-links a:hover { color: var(--gold-lt); padding-left: 4px; }
+    .foot-contact-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: .9rem;
+    }
+    .foot-contact-list li {
+      display: flex;
+      gap: .75rem;
+      align-items: flex-start;
+      font-size: .83rem;
+      font-weight: 300;
+      color: rgba(255,255,255,.4);
+    }
+    .foot-contact-list i {
+      color: rgba(212,175,55,.6);
+      margin-top: 2px;
+      flex-shrink: 0;
+      font-size: .85rem;
+    }
+    .foot-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,.06);
+      font-size: .75rem;
+      font-weight: 300;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .foot-bottom a { color: rgba(255,255,255,.3); transition: color .2s; }
+    .foot-bottom a:hover { color: var(--gold-lt); }
+
+    /* ═══════════════════════════════════════
+       WHATSAPP FAB
+    ═══════════════════════════════════════ */
+    .wa-fab {
+      position: fixed;
+      bottom: 2rem; right: 2rem;
+      z-index: 800;
+      width: 52px; height: 52px;
+      background: #25D366;
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      box-shadow: 0 6px 24px rgba(37,211,102,.35);
+      transition: var(--tr);
+    }
+    .wa-fab:hover { transform: scale(1.1); box-shadow: 0 10px 32px rgba(37,211,102,.45); }
+
+    /* ═══════════════════════════════════════
+       APPOINTMENT MODAL
+    ═══════════════════════════════════════ */
+    .modal-bg {
+      position: fixed; inset: 0;
+      background: rgba(11,15,25,.75);
+      backdrop-filter: blur(12px);
+      z-index: 2000;
+      opacity: 0; visibility: hidden;
+      transition: all .35s;
+    }
+    .modal-bg.show { opacity: 1; visibility: visible; }
+    .modal-box {
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -48%) scale(.97);
+      width: 90%; max-width: 540px;
+      background: var(--white);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      z-index: 2001;
+      opacity: 0; visibility: hidden;
+      transition: all .4s cubic-bezier(.34,1.56,.64,1);
+      box-shadow: var(--sh-lg);
+    }
+    .modal-box.show { opacity: 1; visibility: visible; transform: translate(-50%,-50%) scale(1); }
+    .modal-head {
+      background: var(--g-dark);
+      padding: 2rem 2rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 1px solid rgba(212,175,55,.15);
+    }
+    .modal-head h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: var(--white);
+    }
+    .modal-head p { font-size: .78rem; color: rgba(255,255,255,.4); margin-top: .3rem; font-weight: 300; }
+    .modal-x {
+      color: rgba(255,255,255,.4);
+      font-size: 1.1rem;
+      padding: .25rem;
+      transition: color .2s;
+      line-height: 1;
+    }
+    .modal-x:hover { color: var(--white); }
+    .modal-body { padding: 2rem; }
+    /* step indicator */
+    .step-row {
+      display: flex;
+      gap: .5rem;
+      margin-bottom: 2rem;
+    }
+    .step-pip {
+      height: 3px;
+      flex: 1;
+      background: var(--gray-lt);
+      border-radius: 2px;
+      transition: background .3s;
+    }
+    .step-pip.active { background: var(--gold); }
+    /* service cards */
+    .svc-card {
+      border: 1px solid var(--gray-lt);
+      border-radius: var(--r-md);
+      padding: 1rem 1.25rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: .6rem;
+      transition: var(--tr);
+      background: var(--offwhite);
+    }
+    .svc-card:hover { border-color: rgba(168,137,43,.5); background: #fff; }
+    .svc-card.sel { border-color: var(--gold-dk); background: rgba(212,175,55,.05); }
+    .svc-card h4 { font-size: .9rem; font-weight: 500; color: var(--navy); }
+    .svc-card p  { font-size: .75rem; color: var(--gray-mid); margin-top: .15rem; }
+    .svc-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--gold-dk);
+      white-space: nowrap;
+    }
+    .form-grp { margin-bottom: 1rem; }
+    .form-grp label { display: block; font-size: .75rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--gray-dk); margin-bottom: .4rem; }
+    .form-inp {
+      width: 100%;
+      padding: .75rem 1rem;
+      border: 1px solid var(--gray-lt);
+      border-radius: var(--r-md);
+      font-family: 'Inter', sans-serif;
+      font-size: .9rem;
+      color: var(--navy);
+      background: var(--offwhite);
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .form-inp:focus { outline: none; border-color: var(--gold-dk); background: #fff; box-shadow: 0 0 0 3px rgba(212,175,55,.1); }
+    .time-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(70px,1fr)); gap: .5rem; margin-top: .4rem; }
+    .tslot {
+      padding: .55rem .3rem;
+      border: 1px solid var(--gray-lt);
+      border-radius: var(--r-sm);
+      font-size: .8rem;
+      font-weight: 500;
+      text-align: center;
+      color: var(--gray-dk);
+      background: var(--offwhite);
+      transition: var(--tr);
+    }
+    .tslot:hover { border-color: var(--gold-dk); color: var(--gold-dk); }
+    .tslot.sel { background: var(--gold-dk); border-color: var(--gold-dk); color: #fff; }
+    .modal-foot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--gray-lt);
+      margin-top: 1.5rem;
+    }
+    .mbtn {
+      font-family: 'Inter Tight', sans-serif;
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: .75rem 1.75rem;
+      border-radius: var(--r-sm);
+      transition: var(--tr);
+    }
+    .mbtn-back { background: var(--offwhite); color: var(--gray-dk); }
+    .mbtn-back:hover { background: var(--gray-lt); }
+    .mbtn-next { background: var(--navy); color: var(--white); margin-left: auto; }
+    .mbtn-next:hover { background: var(--black); box-shadow: var(--sh-sm); }
+    .modal-step { display: none; }
+    .modal-step.active { display: block; }
+    /* success */
+    .success-pane { text-align: center; padding: 2rem 1rem; }
+    .success-ico {
+      width: 64px; height: 64px;
+      background: linear-gradient(135deg,#10b981,#059669);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1.5rem;
+      margin-bottom: 1.25rem;
+      animation: popIn .5s cubic-bezier(.34,1.56,.64,1);
+    }
+    @keyframes popIn { from { transform: scale(0); } to { transform: scale(1); } }
+    .success-pane h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 300; color: var(--navy); margin-bottom: .5rem; }
+    .success-pane p { font-size: .88rem; color: var(--gray-mid); max-width: 320px; margin: 0 auto 1.5rem; font-weight: 300; line-height: 1.7; }
+
+    /* ═══════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════ */
+    @media (max-width: 1100px) {
+      .alt-text { padding: 4rem 3rem; }
+      .foot-top { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 900px) {
+      .nav-links, .btn-nav { display: none; }
+      .hamburger { display: flex; }
+      .values-grid { grid-template-columns: 1fr 1fr; }
+      .val-item:nth-child(2) { border-right: none; }
+      .val-item:nth-child(3) { border-right: 1px solid var(--gray-lt); }
+      .testi-grid { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; }
+      .hero-stats { display: none; }
+      .alt-section {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+      .alt-img { height: 40vw; max-height: 350px; }
+      .alt-img img { object-position: top center; }
+      /* Swap order for mobile: image first, text second */
+      .alt-section .alt-img { order: -1; }
+      .alt-section .alt-text { order: 1; }
+      .alt-text { padding: 2.5rem 2rem; }
+    }
+
+    @media (max-width: 600px) {
+      .container { padding: 0 1.25rem; }
+      .hdr-inner { padding: 1.1rem 1.25rem; }
+      .hero-content { padding: 0 1.25rem 5rem; }
+      .foot-top { grid-template-columns: 1fr; gap: 2rem; }
+      .foot-bottom { flex-direction: column; text-align: center; }
+      .values-grid { grid-template-columns: 1fr; }
+      .val-item { border-right: none !important; border-bottom: 1px solid var(--gray-lt); }
+      .val-item:last-child { border-bottom: none; }
+      .cta-band { padding: 3rem 0; }
+      .testi-sec, .faq-sec { padding: 3.5rem 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════
+     HEADER
+═══════════════════════════════════════ -->
+<header class="hdr at-top" id="hdr">
+  <div class="hdr-inner">
+    <a href="/" class="logo" aria-label="Ópticas H&H — inicio">
+      <img src="ACTIVOS/FOTOSFINALES/img10.jpeg" alt="Logo Ópticas H&H" class="logo-img">
+      <span class="logo-text">Ópticas <span>H&H</span></span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#coleccion">Colección</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#faq">Preguntas</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="nav-icon" aria-label="Buscar"><i class="fas fa-search"></i></button>
+      <button class="btn-nav open-modal" aria-label="Agendar examen">
+        <i class="fas fa-calendar-check"></i> Agendar
+      </button>
+      <button class="hamburger" id="ham" aria-label="Menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile fullscreen nav -->
+<nav class="mob-nav" id="mob-nav" aria-hidden="true">
+  <button class="mob-close" id="mob-close" aria-label="Cerrar menú"><i class="fas fa-times"></i></button>
+  <a href="#inicio">Inicio</a>
+  <a href="#coleccion">Colección</a>
+  <a href="#nosotros">Nosotros</a>
+  <a href="#faq">Preguntas</a>
+  <a href="#contacto">Contacto</a>
+</nav>
+
+<!-- ═══════════════════════════════════════
+     HERO
+═══════════════════════════════════════ -->
+<section class="hero" id="inicio" aria-label="Portada principal">
+
+  <video class="hero-video" autoplay muted loop playsinline preload="auto"
+         aria-hidden="true">
+    <source src="ACTIVOS/FOTOSFINALES/video4.mp4" type="video/mp4">
+  </video>
+
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="hero-grain"   aria-hidden="true"></div>
+
+  <div class="hero-content container">
+    <div class="hero-kicker">Ópticas H&amp;H — Santiago, Chile</div>
+    <h1>
+      Ver el mundo<br>
+      con <em>claridad</em><br>
+      y estilo
+    </h1>
+    <p class="hero-sub">
+      Lentes ópticos y de sol seleccionados para quienes aprecian
+      la precisión visual y el diseño de excepción.
+    </p>
+    <div class="hero-actions">
+      <a href="#coleccion" class="btn-primary">
+        <i class="fas fa-glasses"></i> Explorar Colección
+      </a>
+      <button class="btn-outline open-modal">
+        <i class="fas fa-calendar-check"></i> Examen Gratuito
+      </button>
+    </div>
+  </div>
+
+  <div class="hero-stats" aria-hidden="true">
+    <div class="h-stat">
+      <div class="h-stat-num">14+</div>
+      <div class="h-stat-label">Años de experiencia</div>
+    </div>
+    <div class="h-stat">
+      <div class="h-stat-num">12k</div>
+      <div class="h-stat-label">Clientes satisfechos</div>
+    </div>
+    <div class="h-stat">
+      <div class="h-stat-num">4.9</div>
+      <div class="h-stat-label">Calificación media</div>
+    </div>
+  </div>
+
+  <div class="scroll-indicator" aria-hidden="true">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+
+</section>
+
+<!-- ═══════════════════════════════════════
+     MARQUEE
+═══════════════════════════════════════ -->
+<div class="marquee-strip" aria-hidden="true">
+  <div class="marquee-track">
+    <!-- duplicated for seamless loop -->
+    <span class="marquee-item">Examen Visual Gratuito <span>✦</span></span>
+    <span class="marquee-item">Envío a Todo Chile <span>✦</span></span>
+    <span class="marquee-item">Garantía 2 Años <span>✦</span></span>
+    <span class="marquee-item">Más de 200 Modelos <span>✦</span></span>
+    <span class="marquee-item">Lentes con Receta <span>✦</span></span>
+    <span class="marquee-item">Atención Personalizada <span>✦</span></span>
+    <span class="marquee-item">Devolución en 30 Días <span>✦</span></span>
+    <span class="marquee-item">Tecnólogos Certificados <span>✦</span></span>
+    <span class="marquee-item">Examen Visual Gratuito <span>✦</span></span>
+    <span class="marquee-item">Envío a Todo Chile <span>✦</span></span>
+    <span class="marquee-item">Garantía 2 Años <span>✦</span></span>
+    <span class="marquee-item">Más de 200 Modelos <span>✦</span></span>
+    <span class="marquee-item">Lentes con Receta <span>✦</span></span>
+    <span class="marquee-item">Atención Personalizada <span>✦</span></span>
+    <span class="marquee-item">Devolución en 30 Días <span>✦</span></span>
+    <span class="marquee-item">Tecnólogos Certificados <span>✦</span></span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     ALTERNATING SECTIONS — Colección
+═══════════════════════════════════════ -->
+<main id="coleccion">
+
+  <!-- SECCIÓN 1 — Niños | Texto izq / Imagen der -->
+  <article class="alt-section dark kids-horizontal">
+    <div class="alt-text">
+      <div class="eyebrow reveal delay-1">Colección Kids</div>
+      <h2 class="alt-h reveal delay-2">
+        Visión Perfecta<br>para los Más<br><em>Pequeños</em>
+      </h2>
+      <div class="gold-rule reveal delay-2"></div>
+      <p class="alt-p reveal delay-3">
+        Descubre monturas cómodas, resistentes y diseñadas especialmente
+        para acompañar cada etapa de crecimiento. Materiales flexibles,
+        colores vibrantes y ajuste seguro.
+      </p>
+      <button class="btn-alt open-modal reveal delay-4">
+        Agendar examen infantil <i class="fas fa-arrow-right"></i>
+      </button>
+    </div>
+    <div class="alt-img reveal-right">
+      <div class="img-num" aria-hidden="true">01</div>
+      <!-- foto niños -->
+      <img src="ACTIVOS/FOTOSFINALES/img55.png"
+           alt="Niños usando monturas ópticas de colores, sonriendo"
+           loading="lazy">
+    </div>
+  </article>
+
+  <!-- SECCIÓN 2 — Pareja | Imagen izq / Texto der -->
+  <article class="alt-section white editorial-layout">
+    <div class="alt-img reveal-left">
+      <div class="img-num" aria-hidden="true">02</div>
+      <!-- foto pareja -->
+      <img src="ACTIVOS/FOTOSFINALES/img77.png"
+           alt="Pareja usando lentes de sol elegantes, sonriendo al exterior"
+           loading="lazy">
+    </div>
+    <div class="alt-text">
+      <div class="eyebrow reveal delay-1">Colección Parejas</div>
+      <h2 class="alt-h reveal delay-2">
+        Diseño que<br><em>Complementa</em><br>tu Estilo
+      </h2>
+      <div class="gold-rule reveal delay-2"></div>
+      <p class="alt-p reveal delay-3">
+        Colecciones modernas para quienes buscan elegancia, personalidad
+        y comodidad en cada detalle. Porque el estilo es un lenguaje que
+        se habla en pareja.
+      </p>
+      <button class="btn-alt open-modal reveal delay-4">
+        Ver colección <i class="fas fa-arrow-right"></i>
+      </button>
+    </div>
+  </article>
+
+  <!-- SECCIÓN 3 — Hombre | Texto izq / Imagen der -->
+  <article class="alt-section dark">
+    <div class="alt-text">
+      <div class="eyebrow reveal delay-1">Colección Masculina</div>
+      <h2 class="alt-h reveal delay-2">
+        <em>Elegancia</em><br>Masculina
+      </h2>
+      <div class="gold-rule reveal delay-2"></div>
+      <p class="alt-p reveal delay-3">
+        Monturas sofisticadas que combinan tecnología, confort y diseño
+        contemporáneo. Para el hombre que sabe que los detalles marcan
+        la diferencia.
+      </p>
+      <button class="btn-alt open-modal reveal delay-4">
+        Agendar examen <i class="fas fa-arrow-right"></i>
+      </button>
+    </div>
+    <div class="alt-img reveal-right">
+      <div class="img-num" aria-hidden="true">03</div>
+      <!-- img22 hombre -->
+      <img src="ACTIVOS/FOTOSFINALES/img22.png"
+           alt="Hombre con montura óptica de diseño sofisticado, pose segura"
+           loading="lazy"
+           onerror="this.src='ACTIVOS/FOTOSFINALES/img8.jpeg'">
+    </div>
+  </article>
+
+  <!-- SECCIÓN 4 — Mujer (img20) | Imagen izq / Texto der -->
+  <article class="alt-section light editorial-layout">
+    <div class="alt-img reveal-left">
+      <div class="img-num" aria-hidden="true">04</div>
+      <!-- img20 mujer -->
+      <img src="ACTIVOS/FOTOSFINALES/img20.png"
+           alt="Mujer joven con lentes de sol elegantes, look sofisticado"
+           loading="lazy"
+           onerror="this.src='ACTIVOS/FOTOSFINALES/img9.jpeg'">
+    </div>
+    <div class="alt-text">
+      <div class="eyebrow reveal delay-1">Colección Femenina</div>
+      <h2 class="alt-h reveal delay-2">
+        Belleza y<br><em>Distinción</em>
+      </h2>
+      <div class="gold-rule reveal delay-2"></div>
+      <p class="alt-p reveal delay-3">
+        Modelos cuidadosamente seleccionados para destacar tu estilo con
+        elegancia y confianza. Desde formas clásicas hasta diseños
+        avant-garde que definen tendencia.
+      </p>
+      <button class="btn-alt open-modal reveal delay-4">
+        Ver colección <i class="fas fa-arrow-right"></i>
+      </button>
+    </div>
+  </article>
+
+  <!-- SECCIÓN 5 — Mujer (img11) | Texto izq / Imagen der -->
+  <article class="alt-section black">
+    <div class="alt-text">
+      <div class="eyebrow reveal delay-1">Experiencia Premium</div>
+      <h2 class="alt-h reveal delay-2">
+        Experiencia Óptica<br>de Nivel<br><em>Superior</em>
+      </h2>
+      <div class="gold-rule reveal delay-2"></div>
+      <p class="alt-p reveal delay-3">
+        Calidad, innovación y atención personalizada para ayudarte a
+        encontrar los lentes ideales. Tecnólogos certificados, equipos
+        de última generación y más de 14 años de experiencia.
+      </p>
+      <button class="btn-primary open-modal reveal delay-4" style="align-self:flex-start">
+        <i class="fas fa-calendar-check"></i> Examen Gratuito
+      </button>
+    </div>
+    <div class="alt-img reveal-right">
+      <div class="img-num" aria-hidden="true">05</div>
+      <!-- img99 mujer -->
+      <img src="ACTIVOS/FOTOSFINALES/img99.png"
+           alt="Mujer elegante con lentes de sol de diseño premium, pose editorial"
+           loading="lazy"
+           onerror="this.src='ACTIVOS/FOTOSFINALES/img11.jpeg'">
+    </div>
+  </article>
+
+</main>
+
+<!-- ═══════════════════════════════════════
+     BRAND VALUES
+═══════════════════════════════════════ -->
+<section class="values-strip" id="nosotros" aria-labelledby="values-h">
+  <div class="container">
+    <div class="values-grid">
+      <div class="val-item reveal">
+        <div class="val-icon"><i class="fas fa-user-doctor"></i></div>
+        <div class="val-title">Examen Gratuito</div>
+        <div class="val-desc">Evaluación completa con tecnólogos certificados sin costo adicional</div>
+      </div>
+      <div class="val-item reveal delay-1">
+        <div class="val-icon"><i class="fas fa-truck-fast"></i></div>
+        <div class="val-title">Envío a Chile</div>
+        <div class="val-desc">Despacho en 2–5 días hábiles. Gratis sobre $30.000</div>
+      </div>
+      <div class="val-item reveal delay-2">
+        <div class="val-icon"><i class="fas fa-shield-halved"></i></div>
+        <div class="val-title">Garantía 2 Años</div>
+        <div class="val-desc">Armazones y cristales cubiertos contra defectos de fabricación</div>
+      </div>
+      <div class="val-item reveal delay-3">
+        <div class="val-icon"><i class="fas fa-rotate-left"></i></div>
+        <div class="val-title">30 Días Devolución</div>
+        <div class="val-desc">Cambio o reembolso total, sin preguntas ni complicaciones</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     TESTIMONIALS
+═══════════════════════════════════════ -->
+<section class="testi-sec">
+  <div class="container">
+    <div class="testi-header reveal">
+      <div class="eyebrow" style="justify-content:center;color:var(--gold)">Lo que dicen nuestros clientes</div>
+      <h2><em>Experiencias</em> que nos inspiran</h2>
+      <div class="gold-rule center"></div>
+    </div>
+    <div class="testi-grid">
+      <blockquote class="testi-card reveal delay-1">
+        <div class="testi-stars">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          <i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </div>
+        <div class="testi-text-wrap">
+          <span class="testi-q" aria-hidden="true">&ldquo;</span>
+          <p class="testi-text">Excelente atención y calidad. Mis nuevos lentes son cómodos, elegantes y el examen fue súper rápido. ¡Volvería sin dudarlo!</p>
+        </div>
+        <div class="testi-author">
+          <div class="tav">MC</div>
+          <div><div class="tav-name">María Contreras</div><div class="tav-loc">Santiago, Chile</div></div>
+        </div>
+      </blockquote>
+      <blockquote class="testi-card reveal delay-2">
+        <div class="testi-stars">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          <i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </div>
+        <div class="testi-text-wrap">
+          <span class="testi-q" aria-hidden="true">&ldquo;</span>
+          <p class="testi-text">Compré lentes para toda la familia. La calidad es increíble, el envío fue más rápido de lo esperado y el servicio es impecable.</p>
+        </div>
+        <div class="testi-author">
+          <div class="tav">JR</div>
+          <div><div class="tav-name">Javier Rojas</div><div class="tav-loc">Valparaíso, Chile</div></div>
+        </div>
+      </blockquote>
+      <blockquote class="testi-card reveal delay-3">
+        <div class="testi-stars">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+        </div>
+        <div class="testi-text-wrap">
+          <span class="testi-q" aria-hidden="true">&ldquo;</span>
+          <p class="testi-text">La atención fue personalizada y el optometrista me explicó todo con paciencia. Mis lentes nuevos cambiaron mi calidad de vida.</p>
+        </div>
+        <div class="testi-author">
+          <div class="tav">AS</div>
+          <div><div class="tav-name">Ana Silva</div><div class="tav-loc">Concepción, Chile</div></div>
+        </div>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     FAQ
+═══════════════════════════════════════ -->
+<section class="faq-sec" id="faq" aria-labelledby="faq-h">
+  <div class="container">
+    <div class="faq-header reveal">
+      <div class="eyebrow" style="justify-content:center;color:var(--gold-dk)">Preguntas frecuentes</div>
+      <h2 id="faq-h">Todo lo que necesitas <em>saber</em></h2>
+      <div class="gold-rule center" style="background:var(--gold-dk)"></div>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          ¿El examen visual es realmente gratuito?
+          <span class="faq-icon" aria-hidden="true"><i class="fas fa-plus"></i></span>
+        </button>
+        <div class="faq-body"><div class="faq-body-inner">Sí, 100% gratuito al realizar tu compra. Contamos con tecnólogos certificados y equipos de refracción digitales de última generación para medir tu agudeza visual con total precisión.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          ¿Cuánto tiempo tarda la entrega?
+          <span class="faq-icon" aria-hidden="true"><i class="fas fa-plus"></i></span>
+        </button>
+        <div class="faq-body"><div class="faq-body-inner">Lentes de sol y armazones en stock: 24–48 horas hábiles. Lentes ópticos con cristales personalizados: 3–5 días de fabricación más 2–5 días de despacho, según tu región en Chile.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          ¿Tienen convenios con Fonasa o Isapres?
+          <span class="faq-icon" aria-hidden="true"><i class="fas fa-plus"></i></span>
+        </button>
+        <div class="faq-body"><div class="faq-body-inner">Sí. Emitimos boletas detalladas con receta médica adjunta para que solicites reembolso en tu Isapre, Fonasa o seguro complementario. También contamos con convenios de descuento con empresas asociadas.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          ¿Qué garantía tienen los productos?
+          <span class="faq-icon" aria-hidden="true"><i class="fas fa-plus"></i></span>
+        </button>
+        <div class="faq-body"><div class="faq-body-inner">Todos nuestros armazones y tratamientos de cristales tienen 2 años de garantía contra defectos de fabricación. Además, 30 días corridos de cambio o devolución total si no quedas completamente satisfecho.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          ¿Puedo comprar online y retirar en tienda?
+          <span class="faq-icon" aria-hidden="true"><i class="fas fa-plus"></i></span>
+        </button>
+        <div class="faq-body"><div class="faq-body-inner">¡Por supuesto! Ofrecemos retiro en tienda (Av. Providencia 1234, Santiago) el mismo día si el producto está disponible. Solo selecciona "Retiro en tienda" al finalizar tu compra.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     CTA BAND
+═══════════════════════════════════════ -->
+<section class="cta-band">
+  <div class="container reveal">
+    <div class="eyebrow" style="justify-content:center;color:var(--gold)">Agenda tu cita</div>
+    <h2>¿Listo para ver el mundo<br>con <em>claridad total</em>?</h2>
+    <p>Examen visual gratuito con nuestros especialistas. Sin compromiso. Solo trae tus ganas de ver mejor.</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+      <button class="btn-primary open-modal">
+        <i class="fas fa-calendar-check"></i> Agendar Examen Gratuito
+      </button>
+      <a href="https://wa.me/56912345678?text=Hola%2C%20quiero%20agendar%20un%20examen%20visual" target="_blank" rel="noopener" class="btn-outline">
+        <i class="fab fa-whatsapp"></i> Escribir por WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════ -->
+<footer class="footer" id="contacto">
+  <div class="container">
+    <div class="foot-top">
+      <!-- Brand -->
+      <div>
+        <div class="foot-brand-logo">
+          <img src="ACTIVOS/FOTOSFINALES/img10.jpeg" alt="Logo Ópticas H&H" class="foot-logo-img">
+          <span class="foot-brand-name">Ópticas <span>H&H</span></span>
+        </div>
+        <p class="foot-desc">
+          Tu destino para lentes ópticos y de sol con estilo. Calidad, innovación
+          y atención personalizada desde 2010 en Santiago de Chile.
+        </p>
+        <div class="socials">
+          <a href="#" class="soc" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="soc" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="soc" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+          <a href="https://wa.me/56912345678" class="soc" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+
+      <!-- Links -->
+      <div>
+        <h4 class="foot-h">Servicios</h4>
+        <ul class="foot-links">
+          <li><a href="#">Lentes Ópticos</a></li>
+          <li><a href="#">Lentes de Sol</a></li>
+          <li><a href="#">Colección Kids</a></li>
+          <li><a href="#">Lentes de Contacto</a></li>
+          <li><a href="#">Examen Visual</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="foot-h">Información</h4>
+        <ul class="foot-links">
+          <li><a href="#faq">Preguntas Frecuentes</a></li>
+          <li><a href="#">Envíos y Devoluciones</a></li>
+          <li><a href="#">Convenios Isapre</a></li>
+          <li><a href="#">Términos y Condiciones</a></li>
+          <li><a href="#">Política de Privacidad</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h4 class="foot-h">Contacto</h4>
+        <ul class="foot-contact-list">
+          <li><i class="fas fa-location-dot"></i><span>Av. Providencia 1234, Santiago, Chile</span></li>
+          <li><i class="fas fa-phone"></i><span><a href="tel:+56223456789" style="color:inherit">+56 2 2345 6789</a></span></li>
+          <li><i class="fab fa-whatsapp"></i><span><a href="https://wa.me/56912345678" style="color:inherit">+56 9 1234 5678</a></span></li>
+          <li><i class="fas fa-envelope"></i><span><a href="mailto:hola@opticashh.cl" style="color:inherit">hola@opticashh.cl</a></span></li>
+          <li><i class="fas fa-clock"></i><span>Lun–Vie 10:00–20:00 · Sáb 10:00–18:00</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="foot-bottom">
+      <span>© 2025 Ópticas H&H — Todos los derechos reservados</span>
+      <span><a href="#">Términos</a> &nbsp;·&nbsp; <a href="#">Privacidad</a> &nbsp;·&nbsp; <a href="#">Cookies</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════
+     WHATSAPP FAB
+═══════════════════════════════════════ -->
+<a href="https://wa.me/56912345678?text=Hola%2C%20quiero%20agendar%20un%20examen%20visual%20en%20%C3%93pticas%20H%26H"
+   class="wa-fab"
+   target="_blank" rel="noopener"
+   aria-label="Contactar por WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- ═══════════════════════════════════════
+     APPOINTMENT MODAL
+═══════════════════════════════════════ -->
+<div class="modal-bg" id="modal-bg" role="presentation"></div>
+<div class="modal-box" id="modal-box" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal-head">
+    <div>
+      <h3 id="modal-title">Agendar Examen Visual</h3>
+      <p>Completa los datos y nos ponemos en contacto</p>
+    </div>
+    <button class="modal-x" id="modal-close" aria-label="Cerrar">✕</button>
+  </div>
+  <div class="modal-body">
+
+    <!-- Step progress pips -->
+    <div class="step-row" id="step-pips">
+      <div class="step-pip active" id="pip-1"></div>
+      <div class="step-pip"        id="pip-2"></div>
+      <div class="step-pip"        id="pip-3"></div>
+    </div>
+
+    <!-- Step 1: Service -->
+    <div class="modal-step active" id="ms-1">
+      <div class="svc-card sel" data-svc="Examen Visual Completo (Gratis)">
+        <div><h4>Examen Visual Completo</h4><p>Evaluación preventiva con tecnólogos · 30 min</p></div>
+        <span class="svc-price">Gratis</span>
+      </div>
+      <div class="svc-card" data-svc="Consulta de Contactología ($15.000)">
+        <div><h4>Consulta de Contactología</h4><p>Adaptación de lentes de contacto · 45 min</p></div>
+        <span class="svc-price">$15.000</span>
+      </div>
+      <div class="svc-card" data-svc="Ajuste y Mantenimiento ($5.000)">
+        <div><h4>Ajuste y Mantenimiento</h4><p>Alineación y limpieza de armazón · 15 min</p></div>
+        <span class="svc-price">$5.000</span>
+      </div>
+    </div>
+
+    <!-- Step 2: Date & Time -->
+    <div class="modal-step" id="ms-2">
+      <div class="form-grp">
+        <label for="book-date">Fecha de la cita</label>
+        <input type="date" id="book-date" class="form-inp">
+      </div>
+      <div class="form-grp">
+        <label>Horario disponible</label>
+        <div class="time-grid">
+          <button type="button" class="tslot" data-t="10:00">10:00</button>
+          <button type="button" class="tslot" data-t="11:00">11:00</button>
+          <button type="button" class="tslot" data-t="12:00">12:00</button>
+          <button type="button" class="tslot" data-t="15:00">15:00</button>
+          <button type="button" class="tslot" data-t="16:00">16:00</button>
+          <button type="button" class="tslot" data-t="17:00">17:00</button>
+          <button type="button" class="tslot" data-t="18:00">18:00</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 3: Contact -->
+    <div class="modal-step" id="ms-3">
+      <div class="form-grp">
+        <label for="p-name">Nombre completo</label>
+        <input type="text" id="p-name" class="form-inp" placeholder="Ej. María González">
+      </div>
+      <div class="form-grp">
+        <label for="p-email">Correo electrónico</label>
+        <input type="email" id="p-email" class="form-inp" placeholder="Ej. maria@gmail.com">
+      </div>
+      <div class="form-grp">
+        <label for="p-phone">Celular</label>
+        <input type="tel" id="p-phone" class="form-inp" placeholder="+56 9 1234 5678">
+      </div>
+    </div>
+
+    <!-- Step 4: Success -->
+    <div class="modal-step" id="ms-4">
+      <div class="success-pane">
+        <div class="success-ico"><i class="fas fa-check"></i></div>
+        <h4>¡Cita Confirmada!</h4>
+        <p id="success-msg">Tu cita ha sido agendada correctamente. Recibirás la confirmación en tu correo.</p>
+        <button class="btn-primary" id="btn-success-close" style="margin:0 auto">Cerrar</button>
+      </div>
+    </div>
+
+    <!-- Footer buttons -->
+    <div class="modal-foot" id="modal-foot">
+      <button class="mbtn mbtn-back" id="btn-back" style="display:none">← Atrás</button>
+      <button class="mbtn mbtn-next" id="btn-next">Siguiente →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     JAVASCRIPT
+═══════════════════════════════════════ -->
+<script>
+(function () {
+  'use strict';
+
+  /* ── Header scroll state & auto-hide ── */
+  const hdr = document.getElementById('hdr');
+  let headerTimeout;
+  let lastMouseMoveY = 0;
+  let isHeaderVisible = true;
+  
+  function updateHeader() {
+    if (window.scrollY > 60) {
+      hdr.classList.remove('at-top');
+      hdr.classList.add('scrolled');
+    } else {
+      hdr.classList.add('at-top');
+      hdr.classList.remove('scrolled');
+    }
+  }
+  
+  function showHeader() {
+    if (!isHeaderVisible) {
+      hdr.classList.remove('hidden');
+      isHeaderVisible = true;
+    }
+    clearTimeout(headerTimeout);
+    headerTimeout = setTimeout(() => {
+      if (window.scrollY > 100) {
+        hideHeader();
+      }
+    }, 3000);
+  }
+  
+  function hideHeader() {
+    if (isHeaderVisible && window.scrollY > 100) {
+      hdr.classList.add('hidden');
+      isHeaderVisible = false;
+    }
+  }
+  
+  // Track mouse movement for header auto-hide
+  document.addEventListener('mousemove', (e) => {
+    const currentY = e.clientY;
+    
+    // Show header when mouse moves to top 100px
+    if (currentY < 100) {
+      showHeader();
+    }
+    
+    // Show header when mouse moves up significantly
+    if (currentY < lastMouseMoveY - 50) {
+      showHeader();
+    }
+    
+    lastMouseMoveY = currentY;
+  });
+  
+  // Show header when hovering over it
+  hdr.addEventListener('mouseenter', showHeader);
+  
+  // Start auto-hide timer
+  window.addEventListener('scroll', () => {
+    updateHeader();
+    showHeader(); // Show on scroll, then hide after timeout
+  }, { passive: true });
+  
+  updateHeader();
+  
+  // Initial hide after 3 seconds if scrolled down
+  setTimeout(() => {
+    if (window.scrollY > 100) {
+      hideHeader();
+    }
+  }, 3000);
+
+  /* ── Mobile nav ── */
+  const ham = document.getElementById('ham');
+  const mobNav = document.getElementById('mob-nav');
+  const mobClose = document.getElementById('mob-close');
+
+  function openMob() {
+    mobNav.classList.add('open');
+    mobNav.setAttribute('aria-hidden', 'false');
+    ham.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMob() {
+    mobNav.classList.remove('open');
+    mobNav.setAttribute('aria-hidden', 'true');
+    ham.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+  ham.addEventListener('click', openMob);
+  mobClose.addEventListener('click', closeMob);
+  mobNav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMob));
+
+  /* ── Smooth scroll with header offset ── */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (!target) return;
+      e.preventDefault();
+      const offset = hdr.offsetHeight + 8;
+      const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    });
+  });
+
+  /* ── Scroll Reveal ── */
+  const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => revealObserver.observe(el));
+
+  /* ── FAQ Accordion ── */
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-q').addEventListener('click', function () {
+      const isOpen = item.classList.contains('open');
+      // Close all
+      document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+        i.querySelector('.faq-body').style.maxHeight = '0';
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        this.setAttribute('aria-expanded', 'true');
+        item.querySelector('.faq-body').style.maxHeight =
+          item.querySelector('.faq-body').scrollHeight + 'px';
+      }
+    });
+  });
+
+  /* ── MODAL ── */
+  console.log('[Modal] Inicializando modal de agendamiento');
+  const modalBg   = document.getElementById('modal-bg');
+  const modalBox  = document.getElementById('modal-box');
+  const modalClose = document.getElementById('modal-close');
+  const btnNext   = document.getElementById('btn-next');
+  const btnBack   = document.getElementById('btn-back');
+  const successClose = document.getElementById('btn-success-close');
+  const modalFoot = document.getElementById('modal-foot');
+  const pips      = [
+    document.getElementById('pip-1'),
+    document.getElementById('pip-2'),
+    document.getElementById('pip-3'),
+  ];
+  const steps = [
+    document.getElementById('ms-1'),
+    document.getElementById('ms-2'),
+    document.getElementById('ms-3'),
+    document.getElementById('ms-4'),
+  ];
+
+  console.log('[Modal] Elementos del DOM encontrados:');
+  console.log('[Modal] modalBg:', modalBg);
+  console.log('[Modal] modalBox:', modalBox);
+  console.log('[Modal] btnNext:', btnNext);
+  console.log('[Modal] btnBack:', btnBack);
+
+  let step = 0;
+  let selSvc  = 'Examen Visual Completo (Gratis)';
+  let selTime = '';
+
+  function openModal() {
+    console.log('[Modal] openModal() - Abriendo modal');
+    resetModal();
+    modalBg.classList.add('show');
+    modalBox.classList.add('show');
+    document.body.style.overflow = 'hidden';
+    // Announce for screen readers
+    modalBox.focus && modalBox.focus();
+  }
+  function closeModal() {
+    console.log('[Modal] closeModal() - Cerrando modal');
+    modalBg.classList.remove('show');
+    modalBox.classList.remove('show');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.open-modal').forEach(b => b.addEventListener('click', openModal));
+  console.log('[Modal] Botones open-modal encontrados:', document.querySelectorAll('.open-modal').length);
+  modalClose.addEventListener('click', closeModal);
+  modalBg.addEventListener('click', closeModal);
+  successClose.addEventListener('click', closeModal);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+  function gotoStep(n) {
+    console.log('[Modal] gotoStep() - Cambiando a paso:', n);
+    step = n;
+    steps.forEach((s, i) => s.classList.toggle('active', i === n));
+    pips.forEach((p, i) => p.classList.toggle('active', i <= Math.min(n, 2)));
+    btnBack.style.display = n > 0 && n < 3 ? 'block' : 'none';
+    btnNext.textContent = n === 2 ? 'Confirmar Cita →' : 'Siguiente →';
+    modalFoot.style.display = n === 3 ? 'none' : 'flex';
+    console.log('[Modal] gotoStep() - Paso actualizado a:', step, 'Texto botón:', btnNext.textContent);
+  }
+
+  function resetModal() {
+    console.log('[Modal] resetModal() - Reiniciando modal');
+    selSvc = 'Examen Visual Completo (Gratis)';
+    selTime = '';
+    document.querySelectorAll('.svc-card').forEach((c, i) => c.classList.toggle('sel', i === 0));
+    document.querySelectorAll('.tslot').forEach(b => b.classList.remove('sel'));
+    ['p-name', 'p-email', 'p-phone'].forEach(id => { document.getElementById(id).value = ''; });
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('book-date').min = today;
+    document.getElementById('book-date').value = '';
+    modalFoot.style.display = 'flex';
+    gotoStep(0);
+  }
+
+  // Service selection
+  console.log('[Modal] Configurando selección de servicio');
+  document.querySelectorAll('.svc-card').forEach(card => {
+    card.addEventListener('click', function () {
+      console.log('[Modal] Service card clickeado:', this.dataset.svc);
+      document.querySelectorAll('.svc-card').forEach(c => c.classList.remove('sel'));
+      this.classList.add('sel');
+      selSvc = this.dataset.svc;
+      console.log('[Modal] Servicio seleccionado:', selSvc);
+    });
+  });
+
+  // Time slots
+  console.log('[Modal] Configurando selección de hora');
+  document.querySelectorAll('.tslot').forEach(btn => {
+    btn.addEventListener('click', function () {
+      console.log('[Modal] Time slot clickeado:', this.dataset.t);
+      document.querySelectorAll('.tslot').forEach(b => b.classList.remove('sel'));
+      this.classList.add('sel');
+      selTime = this.dataset.t;
+      console.log('[Modal] Hora seleccionada:', selTime);
+    });
+  });
+
+  btnNext.addEventListener('click', () => {
+    console.log('[Modal] btnNext clickeado, paso actual:', step);
+    if (step === 1) {
+      if (!document.getElementById('book-date').value) {
+        alert('Por favor selecciona una fecha.');
+        return;
+      }
+      if (!selTime) {
+        alert('Por favor elige un horario.');
+        return;
+      }
+    }
+    if (step === 2) {
+      console.log('[Modal] Paso 2 - Validando datos de contacto');
+      const n = document.getElementById('p-name').value.trim();
+      const e = document.getElementById('p-email').value.trim();
+      const p = document.getElementById('p-phone').value.trim();
+      if (!n || !e || !p) { alert('Por favor completa todos los campos.'); return; }
+
+      console.log('[Modal] Datos validados, preparando envío al webhook');
+      const rawDate = document.getElementById('book-date').value;
+      const dateObj = new Date(rawDate + 'T12:00');
+      const fmtDate = dateObj.toLocaleDateString('es-CL', {
+        weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+      });
+
+      // Prepare data for webhook
+      const bookingData = {
+        service: selSvc,
+        date: rawDate,
+        time: selTime,
+        patientName: n,
+        patientEmail: e,
+        patientPhone: p,
+        submittedAt: new Date().toISOString()
+      };
+
+      console.log('[Modal] Datos a enviar al webhook:', bookingData);
+      submitToWebhook(bookingData, fmtDate);
+      return;
+    }
+    if (step < 3) gotoStep(step + 1);
+  });
+
+  btnBack.addEventListener('click', () => { if (step > 0) gotoStep(step - 1); });
+
+  // Function to submit data to Activepieces webhook
+  async function submitToWebhook(bookingData, fmtDate) {
+    console.log('[Modal] submitToWebhook() - Iniciando envío al webhook');
+    const webhookUrl = 'https://cloud.activepieces.com/api/v1/webhooks/1VM3zoReCxtK9Ft8QLDiO';
+    console.log('[Modal] submitToWebhook() - URL del webhook:', webhookUrl);
+
+    try {
+      console.log('[Modal] submitToWebhook() - Enviando fetch request');
+      const response = await fetch(webhookUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(bookingData)
+      });
+
+      console.log('[Modal] submitToWebhook() - Response recibida, status:', response.status, 'ok:', response.ok);
+
+      if (response.ok) {
+        console.log('[Modal] submitToWebhook() - Envío exitoso');
+        // Success - show success message
+        document.getElementById('success-msg').innerHTML =
+          `Tu cita para <strong>${bookingData.service}</strong> fue confirmada para el <strong>${fmtDate}</strong> a las <strong>${bookingData.time} hrs</strong>. Hemos enviado los detalles a <strong>${bookingData.patientEmail}</strong>.`;
+        gotoStep(3);
+      } else {
+        console.error('[Modal] submitToWebhook() - Error en response, status:', response.status);
+        // Error - show error message
+        alert('Hubo un error al confirmar tu cita. Por favor intenta nuevamente o contáctanos directamente.');
+      }
+    } catch (error) {
+      console.error('[Modal] submitToWebhook() - Error en catch:', error);
+      alert('Hubo un error al confirmar tu cita. Por favor intenta nuevamente o contáctanos directamente.');
+    }
+  }
+
+})();
+</script>
+
+</body>
+</html>
