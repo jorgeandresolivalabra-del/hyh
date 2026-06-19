@@ -1391,45 +1391,50 @@
     }
 
     /* ═══════════════════════════════════════
-       MEJORAS PARA MÓVIL (header visible y fotos completas)
-    ═══════════════════════════════════════ */
-    @media (max-width: 768px) {
-      /* Header siempre visible en móvil – nunca ocultar */
-      .hdr.hidden {
-        transform: none !important;
-        opacity: 1 !important;
-      }
+   MEJORAS PARA MÓVIL (header visible y fotos consistentes)
+   ═══════════════════════════════════════ */
+@media (max-width: 768px) {
+  /* Header siempre visible */
+  .hdr.hidden {
+    transform: none !important;
+    opacity: 1 !important;
+  }
 
-      /* Imágenes: mostrar completas (sin recorte) */
-      .alt-img {
-        height: auto !important;
-        max-height: 60vh;
-      }
-      .alt-img img {
-        object-fit: contain !important;
-        height: auto !important;
-        max-height: 60vh;
-        width: 100%;
-      }
+  /* Imágenes: todas con el mismo alto para que se vean igual de grandes */
+  .alt-img {
+    height: 45vh !important;        /* Usa el 45% de la altura de la pantalla */
+    max-height: 400px !important;   /* Límite para no exagerar en tablets */
+    min-height: 200px !important;   /* Mínimo para que no sean muy chicas */
+    width: 100%;
+  }
+  .alt-img img {
+    object-fit: cover !important;   /* Recorta para llenar el contenedor */
+    height: 100% !important;        /* Ocupa toda la altura */
+    width: 100% !important;
+    object-position: center 20%;    /* Sube el enfoque para no cortar la frente */
+  }
 
-      /* Ajuste de padding en textos para móvil */
-      .alt-text {
-        padding: 2rem 1.5rem !important;
-      }
+  /* Para imágenes con rostros muy abajo, ajusta cada sección si es necesario */
+  /* Puedes agregar clases específicas si alguna se corta mal */
 
-      /* Hero con menos padding para que quepa mejor */
-      .hero-content {
-        padding: 6rem 1.25rem 4rem;
-      }
-      .hero h1 {
-        font-size: clamp(2.8rem, 12vw, 4rem);
-      }
-      .hero-actions .btn-primary,
-      .hero-actions .btn-outline {
-        padding: 0.7rem 1.5rem;
-        font-size: 0.65rem;
-      }
-    }
+  /* Ajuste de padding en textos para móvil */
+  .alt-text {
+    padding: 2rem 1.5rem !important;
+  }
+
+  /* Hero con menos padding para que quepa mejor */
+  .hero-content {
+    padding: 6rem 1.25rem 4rem;
+  }
+  .hero h1 {
+    font-size: clamp(2.8rem, 12vw, 4rem);
+  }
+  .hero-actions .btn-primary,
+  .hero-actions .btn-outline {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.65rem;
+  }
+}
     /* Fin mejoras para móvil */
 
     @media (prefers-reduced-motion: reduce) {
